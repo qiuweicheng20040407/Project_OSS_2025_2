@@ -1,11 +1,11 @@
 import tkinter as tk
-
+import math
 
 class Calculator:
     def __init__(self, root):
         self.root = root
         self.root.title("계산기")
-        self.root.geometry("300x400")
+        self.root.geometry("300x450")
 
         self.expression = ""
 
@@ -15,6 +15,7 @@ class Calculator:
 
         # 버튼 생성
         buttons = [
+            ['!'],
             ['7', '8', '9', '/'],
             ['4', '5', '6', '*'],
             ['1', '2', '3', '-'],
@@ -42,8 +43,15 @@ class Calculator:
                 self.expression = str(eval(self.expression))
             except Exception:
                 self.expression = "에러"
+        
+        elif char=='!': 
+            try: 
+                val=int(float(eval(self.expression))) 
+                self.expression=str(math.factorial(val)) 
+            except: 
+                self.expression="에러" 
         else:
-            self.expression += str(char)
+            self.expression+=str(char)
 
         self.entry.delete(0, tk.END)
         self.entry.insert(tk.END, self.expression)

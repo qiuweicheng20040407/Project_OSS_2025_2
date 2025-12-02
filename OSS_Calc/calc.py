@@ -15,7 +15,7 @@ class Calculator:
 
         # 버튼 생성
         buttons = [
-            ['!'],
+            ['!','√'],
             ['7', '8', '9', '/'],
             ['4', '5', '6', '*'],
             ['1', '2', '3', '-'],
@@ -48,6 +48,12 @@ class Calculator:
             try: 
                 val=int(float(eval(self.expression))) 
                 self.expression=str(math.factorial(val)) 
+            except: 
+                self.expression="에러" 
+        elif char=='√': 
+            try: 
+                val=float(eval(self.expression)) 
+                self.expression=str(math.sqrt(val))
             except: 
                 self.expression="에러" 
         else:

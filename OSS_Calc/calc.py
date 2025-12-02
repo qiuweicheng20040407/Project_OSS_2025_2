@@ -15,7 +15,7 @@ class Calculator:
 
         # 버튼 생성
         buttons = [
-            ['!','√'],
+            ['!','√','π'],
             ['7', '8', '9', '/'],
             ['4', '5', '6', '*'],
             ['1', '2', '3', '-'],
@@ -56,11 +56,11 @@ class Calculator:
                 self.expression=str(math.sqrt(val))
             except: 
                 self.expression="에러" 
+       elif char=='π': 
+            self.expression+=str(math.pi)
         else:
             self.expression+=str(char)
-
-        self.entry.delete(0, tk.END)
-        self.entry.insert(tk.END, self.expression)
-
+        self.entry.delete(0,tk.END)
+        self.entry.insert(tk.END,self.expression)
 
 
